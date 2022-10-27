@@ -56,7 +56,7 @@ module Jekyll
       if(File.exist?(File.join(base, '_layouts/author.html'))) 
         self.read_yaml(File.join(base, '_layouts'), "author.html")
       else 
-        self.read_yaml(File.join(__dir__, "../_layouts", "author.html"))
+        self.read_yaml(File.join(__dir__, "../_layouts"), "author.html")
       end
       self.data["grouptype"] = type
       self.data[type] = val
@@ -74,7 +74,7 @@ module Jekyll
       if(File.exist?(File.join(base, '_layouts/feed.xml'))) 
         self.read_yaml(File.join(base, '_layouts'), "feed.xml")
       else 
-        self.read_yaml(File.join(__dir__, "../_layouts", "feed.xml"))
+        self.read_yaml(File.join(__dir__, "../_layouts"), "feed.xml")
       end
       self.data[type] = val
       self.data["grouptype"] = type
