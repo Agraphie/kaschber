@@ -1,4 +1,4 @@
-J/*jshint browser:true */
+/*jshint browser:true */
 /*!
 * FitVids 1.3
 *
