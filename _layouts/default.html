@@ -104,6 +104,7 @@
 <script src="{{ "assets/js/infinitescroll.js" | relative_url }}"></script> 
 
 
+<script>
 $(document).ready(function () {
     // Mobile Menu Trigger
     $('.gh-burger').click(function () {
@@ -117,8 +118,7 @@ $(document).ready(function () {
 {% if paginator.total_pages > site.paginate %}
 <script>
     var maxPages = parseInt('{{ paginator.total_pages }}');
-</script>
-<script src="{{ site.baseurl }}assets/js/infinitescroll.js"></script>
+</script>   
 {% endif %}
 
 </body>
