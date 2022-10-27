@@ -1,0 +1,55 @@
+feed_layout: "Classic"
+color_scheme: "Auto"
+theme: kaschber
+
+# Social info
+navigation: True # show the navbar links
+subscribers: False # you need to connect an external service for this to work,
+
+# if 'True' the submit button is disabled for now, but you can change that
+# by editing `_includes/subscribe-form.html`
+
+# Permalinks
+permalink: /:title
+# permalink: /author/:author
+# permalink: /tag/:tag
+
+# Authors' info in `_data/authors.yml`
+# Tags' info in `_data/tags_info.yml`
+
+# gems and other configs
+plugins_dir: [_plugins]
+plugins: 
+  - jekyll-paginate
+  - jekyll-feed
+
+feed:
+  path: feed.xml
+
+# Additional settings available on the front-matter
+# Site logo in the index.html (as in demo.ghost.io)
+# Author's page cover in _layouts/author.html
+# The same for page.html and tag.html layouts
+# Post's page cover as a per-post basis _posts/...
+# Disqus comments as a per-post basis
+# ...
+exclude:
+  - assets/css
+  - "*.hbs"
+  - node_modules
+  - vendor
+  - .travis.yml
+  - Gemfile
+  - Gemfile.lock
+  - GHOST.txt
+  - gulpfile.js
+  - LICENSE
+  - package.json
+  - package-lock.json
+  - npm-shrinkwrap.json
+  - Rakefile
+  - README.md
+  - script.py
+  - changelog.md
+  - "*.Rmd"
+  - .git*
