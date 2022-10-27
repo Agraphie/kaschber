@@ -50,7 +50,7 @@ module Jekyll
       if(File.exist?(File.join(base, '_layouts/tag.html'))) 
         self.read_yaml(File.join(base, '_layouts'), "tag.html")
       else 
-        self.read_yaml(File.join(__dir__, "../_layouts", "tag.html"))
+        self.read_yaml(File.join(__dir__, "../_layouts"), "tag.html")
       end
       self.data["grouptype"] = type
       self.data[type] = val
