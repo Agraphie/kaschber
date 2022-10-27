@@ -50,8 +50,8 @@
                 <div class="gh-social">
                     {% if site.facebook %}<a href="https://facebook.com/{{ site.facebook }}" target="_blank" rel="noopener" class="gh-social-link gh-social-facebook">Facebook</a>{% endif %}
                     {% if site.twitter %}<a href="https://twitter.com/{{ site.twitter }}" target="_blank" rel="noopener" class="gh-social-link gh-social-twitter">Twitter</a>{% endif %}
-                    {% if site.github %}<a href="https://github.com/{{ site.github }}" target="_blank" rel="noopener" class="gh-social-link gh-social-github">{% include github.html %}</a>{% endif %}
-                    {% if site.rss %}<a href="{{ site.baseurl }}feed.xml" target="_blank" rel="noopener" class="gh-social-link gh-social-rss">{% include rss.html %}</a>{% endif %}
+                    {% if site.github %}<a href="https://github.com/{{ site.github }}" target="_blank" rel="noopener" class="gh-social-link gh-social-github">{% include icons/github.html %}</a>{% endif %}
+                    {% if site.rss %}<a href="{{ site.baseurl }} {% if site.feed.path %} {{site.feed.path}} {% else %} feed.xml {% endif %}" target="_blank" rel="noopener" class="gh-social-link gh-social-rss">{% include icons/rss.html %}</a>{% endif %}
                 </div>
                     <!-- The big email subscribe modal content -->
                 {% if site.subscribers %}
