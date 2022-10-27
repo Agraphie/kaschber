@@ -1,0 +1,58 @@
+---
+layout: default
+current: tag
+title: Tag Page
+cover: false
+class: 'tag-template'
+navigation: True
+logo: 'assets/images/ghost.png'
+---
+<!-- dynamically loading backgrounds for tags,  descriptions and page titles -->
+{% assign decoded_url = page.url | url_decode %}
+{% for tag in site.data.tags %}
+    {% if decoded_url contains tag[1].name %}
+        {% assign cover = tag[1].cover %}
+        {% assign tag_description = tag[1].description %}
+    {% endif %}
+{% endfor %}
+
+<main id="site-main" class="site-main outer">
+    <div class="inner posts">
+        <div class="post-feed">
+    
+            <section class="post-card post-card-large">
+    
+                {% if cover or page.cover %}
+                    <div class="post-card-image-link">
+                         <img class="post-card-image"
+                            src="{{ site.baseurl }} {% if cover %} {{ cover }} {% else %} {{ page.cover }} {% endif %} "
+                            alt="{{title}}"
+                        />
+                    </div>
+                {% endif %}
+    
+                
+                <div class="post-card-content">
+                <div class="post-card-content-link">
+                    <header class="post-card-header">
+                        <h2 class="post-card-title">{{ page.tag}}</h2>
+                    </header>
+                    <div class="post-card-excerpt">
+                        {% if tag_description %}
+                            {{ tag_description }}
+                        {% elsif page.tag %}
+                             A collection of {{ paginator.total_posts }} posts
+                        {% endif %}
+                    </div>
+                </div>
+                </div>
+    
+            </section>
+    
+            {%  for post in paginator.posts %}
+                {% include post-card.html post=post %}
+            {% endfor %}
+    
+        </div>
+    </div>
+</main>    

@@ -1,0 +1,5 @@
+presets:
+  default:
+    link_source: true
+    attributes:
+      img: 'loading="lazy"'

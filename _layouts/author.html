@@ -1,0 +1,76 @@
+---
+layout: default
+current: author
+title: Author Page
+cover: false
+class: 'author-template'
+navigation: True
+label: Author
+logo: 'assets/images/ghost.png'
+---
+
+<main id="site-main" class="site-main outer">
+<div class="post-feed inner">
+
+    {% for author in site.data.authors %}
+        {% if author[1].username == page.author %}
+        <section class="post-card post-card-large">
+
+            {%if author.feature_image %}
+            <div class="post-card-image-link">
+                <img class="post-card-image"
+                src="{{ site.baseurl }}{{ author[1].feature_image }}" alt="{{ page.author }}"
+                />
+            </div>
+            {% endif %}
+
+            <div class="post-card-content">
+            <div class="post-card-content-link">
+
+                {%if author.picture %}
+                    <img class="author-profile-pic" src="{{ site.baseurl }}{{ author[1].picture }}" alt="{{author[1].name}}" />
+                {% endif %}
+
+                <header class="post-card-header">
+                    <h2 class="post-card-title">{{author[1].name}}</h2>
+                </header>
+
+                {%if author[1].bio %}
+                    <div class="post-card-excerpt">{{author[1].bio}}</div>
+                {% endif %}
+
+                <footer class="author-profile-footer">
+                    {%if author[1].location %}
+                        <div class="author-profile-location">{{author[1].location}}</div>
+                    {% endif %}
+                    <div class="author-profile-meta">
+                        {%if author[1].website %}
+                            <a class="author-profile-social-link" href="{{author[1].website}}" target="_blank" rel="noopener">{{author[1].website}}</a>
+                        {% endif %}
+                        {%if author[1].twitter_url %}
+                            <a class="author-profile-social-link" href="{{author[1].twitter_url}}" target="_blank" rel="noopener">{% include twitter.html %}</a>
+                        {% endif %}
+                        {%if author[1].facebook_url %}
+                            <a class="author-profile-social-link" href="{{author[1].facebook_url}}" target="_blank" rel="noopener">{% include facebook.html %}</a>
+                        {% endif %}
+
+                        {% if author[1].location %}
+                        <div class="author-location">{{ author[1].location }} <span class="bull">&bull;</span></div>
+                    {% endif %}
+                    </div>
+                </footer>
+
+            </div>
+            </div>
+
+        </section>
+        {% endif %}
+    {% endfor %}
+
+    {% assign filtered_posts = site.posts | where: 'author', page.author %}
+    {% for post in filtered_posts %}
+        {% include post-card.html post=post %}
+    {% endfor %}
+
+</div>
+</main>
