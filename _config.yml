@@ -1,5 +1,7 @@
 feed_layout: "Classic"
 color_scheme: "Auto"
+paginate: 100 # it will paginate after this number
+language: 'en-uk'
 
 # Social info
 navigation: True # show the navbar links
