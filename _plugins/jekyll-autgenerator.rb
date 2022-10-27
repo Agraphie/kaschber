@@ -53,7 +53,11 @@ module Jekyll
       @name = 'index.html'
 
       self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), "author.html")
+      if(File.exist?(File.join(base, '_layouts/author.html'))) 
+        self.read_yaml(File.join(base, '_layouts'), "author.html")
+      else 
+        self.read_yaml(File.join(__dir__, "../_layouts", "author.html"))
+      end
       self.data["grouptype"] = type
       self.data[type] = val
     end
@@ -67,7 +71,11 @@ module Jekyll
       @name = 'feed.xml'
 
       self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), "feed.xml")
+      if(File.exist?(File.join(base, '_layouts/feed.xml'))) 
+        self.read_yaml(File.join(base, '_layouts'), "feed.xml")
+      else 
+        self.read_yaml(File.join(__dir__, "../_layouts", "feed.xml"))
+      end
       self.data[type] = val
       self.data["grouptype"] = type
       self.data["posts"] = posts[0..9]
