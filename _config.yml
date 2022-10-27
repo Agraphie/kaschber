@@ -21,6 +21,7 @@ permalink: /:title
 # gems and other configs
 plugins_dir: [_plugins]
 plugins: 
+  - jekyll-paginate-v2
   - jekyll-feed
   - jekyll-seo-tag
 
