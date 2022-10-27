@@ -11,9 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}assets/built/screen.css" />
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}assets/built/screen.edited.css" />
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}assets/built/global.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.css">
 
     {% include head.html %}
 
@@ -102,19 +100,7 @@
     crossorigin="anonymous">
 </script>
 <script src="{{ site.baseurl }}assets/built/casper.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.min.js"></script>
-<script>
-    tocbot.init({
-        // Where to render the table of contents.
-        tocSelector: '.gh-toc',
-        // Where to grab the headings to build the table of contents.
-        contentSelector: '.gh-content',
-        // Which headings to grab inside of the contentSelector element.
-        headingSelector: 'h1, h2, h3, h4',
-        // Ensure correct positioning
-        hasInnerContainers: true,
-    });
-</script>
+
 
 $(document).ready(function () {
     // Mobile Menu Trigger
