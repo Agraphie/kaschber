@@ -10,7 +10,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/Agraphie/kaschber"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets\/built|_layouts|_includes|_sass|LICENSE|README|_config\.yml|_plugins)!i) }
+  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(_layouts|_includes|_sass|LICENSE|README|_config\.yml|_plugins)!i) }
+  spec.files         += Dir['assets/**/built/**']
 
   spec.add_runtime_dependency "jekyll", "~> 4.2"
   spec.add_runtime_dependency "jekyll-feed", "~> 0.9"
