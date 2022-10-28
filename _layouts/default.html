@@ -10,15 +10,15 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="{{ "/assets/css/global.css" | relative_url }}">
-    <link rel="stylesheet" type="text/css" href="{{ "/assets/css/screen.css" | relative_url }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/assets/built/css/global.css" | relative_url }}">
+    <link rel="stylesheet" type="text/css" href="{{ "/assets/built/css/screen.css" | relative_url }}">
 
     {% include head.html %}
 
 </head>
 <body class="{% if paginator.page > 1 %}paged archive-template{% elsif page.class %}{{ page.class }}{% else %}home-template{% endif %} 
-    {% if site.custom.title_font == "Elegant serif" %} has-serif-title{% endif %}{% if site.custom.body_font == "Modern sans-serif" %} has-sans-body{% endif %}
-    {% if site.cover or page.cover %} has-cover {% endif %}{% if page.current == "home" %}{% unless site.custom.show_logo_in_navigation %} no-logo{% endunless %}{% endif %}">
+    {% if site.title_font == "Elegant serif" %} has-serif-title{% endif %}{% if site.body_font == "Modern sans-serif" %} has-sans-body{% endif %}
+    {% if site.cover or page.cover %} has-cover {% endif %}{% if page.current == "home" %}{% unless site.show_logo_in_navigation %} no-logo{% endunless %}{% endif %}">
 <div class="viewport">
     <header id="gh-head" class="gh-head outer">
         <nav class="gh-head-inner inner">
@@ -100,8 +100,7 @@
     crossorigin="anonymous">
 </script>
 
-<script src="{{ "assets/js/lib/jquery.fitvids.js" | relative_url }}"></script>
-<script src="{{ "assets/js/infinitescroll.js" | relative_url }}"></script> 
+<script src="{{ "assets/built/js/kaschber.js" | relative_url }}"></script> 
 
 
 <script>
@@ -114,12 +113,6 @@ $(document).ready(function () {
     $(".gh-content").fitVids();
 });
 </script>
-
-{% if paginator.total_pages > site.paginate %}
-<script>
-    var maxPages = parseInt('{{ paginator.total_pages }}');
-</script>   
-{% endif %}
 
 </body>
 </html>
