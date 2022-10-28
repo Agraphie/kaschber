@@ -51,7 +51,7 @@
                     {% if site.facebook %}<a href="https://facebook.com/{{ site.facebook }}" target="_blank" rel="noopener" class="gh-social-link gh-social-facebook">Facebook</a>{% endif %}
                     {% if site.twitter %}<a href="https://twitter.com/{{ site.twitter }}" target="_blank" rel="noopener" class="gh-social-link gh-social-twitter">Twitter</a>{% endif %}
                     {% if site.github %}<a href="https://github.com/{{ site.github }}" target="_blank" rel="noopener" class="gh-social-link gh-social-github">{% include icons/github.html %}</a>{% endif %}
-                    {% if site.rss %}<a href="{{ site.baseurl }} {% if site.feed.path %} {{site.feed.path}} {% else %} feed.xml {% endif %}" target="_blank" rel="noopener" class="gh-social-link gh-social-rss">{% include icons/rss.html %}</a>{% endif %}
+                    {% if site.rss %}<a href="{{ site.baseurl }}{% if site.feed.path %}{{site.feed.path}}{% else %}feed.xml{% endif %}" target="_blank" rel="noopener" class="gh-social-link gh-social-rss">{% include icons/rss.html %}</a>{% endif %}
                 </div>
                     <!-- The big email subscribe modal content -->
                 {% if site.subscribers %}
@@ -83,10 +83,9 @@
             <div class="inner">
                 <section class="copyright"><a href="{{ site.url }}">{{ site.title }}</a> &copy; {{  site.time | date: '%Y' }}</section>
                 <nav class="site-footer-nav">
-                  
-                    <!-- put bottom nav here -->
+                    {% include footer-nav.html %}
                 </nav>
-                <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+                <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Jekyll & Kaschber</a></div>
             </div>
         </footer>
     </div>
