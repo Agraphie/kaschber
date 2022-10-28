@@ -15,7 +15,7 @@ disqus: false
                 {% for tag in page.tags %}
                     {% if forloop.first %}
                     <span class="post-card-primary-tag">
-                        <a href="{{ site.baseurl }}tag/{{ tag | slugify: "latin" }}/">{{tag | capitalize}}</a>
+                        <a href="{{ site.baseurl }}tags/{{ tag | slugify: "latin" }}/">{{tag | capitalize}}</a>
                     </span>
                     {% endif %}
                 {% endfor %}
@@ -41,11 +41,11 @@ disqus: false
                         {% if page.author contains author.username %}
                             <li class="author-list-item">
                                 {% if author.picture %}
-                                    <a href="{{ site.baseurl }}author/{{ author.username }}" class="author-avatar">
+                                    <a href="{{ site.baseurl }}authors/{{ author.username }}" class="author-avatar">
                                         <img class="author-profile-image" src="{{ site.baseurl }}{{ author.picture }}" alt="{{ author.username }}" />
                                     </a>
                                 {% else %}
-                                    <a href="{{ site.baseurl }}author/{{ author.username }}" class="author-avatar author-profile-image">{% include icons/avatar.html %}</a>
+                                    <a href="{{ site.baseurl }}authors/{{ author.username }}" class="author-avatar author-profile-image">{% include icons/avatar.html %}</a>
                                 {% endif %}
                             </li>
                         {% endif %}
@@ -58,7 +58,7 @@ disqus: false
                         <h4 class="author-name">
                             {% for author in site.authors %}
                                 {% if page.author contains author.username %}
-                                    <a href="{{ site.baseurl }}author/{{ author.username }}">
+                                    <a href="{{ site.baseurl }}authors/{{ author.username }}">
                                         {{author.name}}
                                     </a>
                                     {% unless forloop.last %},{% endunless %}

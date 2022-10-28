@@ -2,17 +2,6 @@ feed_layout: "Classic"
 color_scheme: "Auto"
 language: 'en-uk'
 
-# if 'True' the submit button is disabled for now, but you can change that
-# by editing `_includes/subscribe-form.html`
-
-# Permalinks
-permalink: /:title
-# permalink: /author/:author
-# permalink: /tag/:tag
-
-# Authors' info in `_data/authors.yml`
-# Tags' info in `_data/tags_info.yml`
-
 # gems and other configs
 plugins: 
   - jekyll-feed
@@ -23,6 +12,8 @@ feed:
 
 collections:
   authors:
+    output: true
+  tags:
     output: true
 
 
@@ -36,3 +27,17 @@ defaults:
       cover: false
       class: 'author-template'
       label: Author
+  - scope:
+      path: ""
+      type: "tags"
+    values:
+      layout: tag
+      current: tag
+      cover: false
+      class: 'tag-template'
+      label: Tag
+
+tag_page_layout: tag
+tag_page_dir: tags
+tag_page_data:
+  class: 'tag-template'

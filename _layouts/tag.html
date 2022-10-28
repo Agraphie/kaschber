@@ -1,22 +1,20 @@
 ---
 layout: default
-current: tag
-title: Tag Page
-cover: false
-class: 'tag-template'
-logo: 'assets/images/ghost.png'
 ---
+
 <!-- dynamically loading backgrounds for tags,  descriptions and page titles -->
 {% assign decoded_url = page.url | url_decode %}
-{% for tag in site.data.tags %}
-    {% if decoded_url contains tag[1].name %}
-        {% assign cover = tag[1].cover %}
-        {% assign tag_description = tag[1].description %}
+{% for tag in site.tags %}
+    {% if decoded_url contains tag.name %}
+        {% assign cover = tag.cover %}
+        {% assign tag_description = tag.description %}
     {% endif %}
 {% endfor %}
 
+{% assign filtered_posts = paginator.posts | default: site.posts | where_exp: 'items', 'items.tags contains page.title or items.tags contains page.tag' %}
 <main id="site-main" class="site-main outer">
-    <div class="inner posts">
+
+  <div class="inner posts">
         <div class="post-feed">
     
             <section class="post-card post-card-large">
@@ -24,7 +22,7 @@ logo: 'assets/images/ghost.png'
                 {% if cover or page.cover %}
                     <div class="post-card-image-link">
                          <img class="post-card-image"
-                            src="{{ site.baseurl }} {% if cover %} {{ cover }} {% else %} {{ page.cover }} {% endif %} "
+                            src="{{ site.baseurl }}{% if cover %}{{ cover }}{% else %}{{ page.cover }}{% endif %} "
                             alt="{{title}}"
                         />
                     </div>
@@ -34,22 +32,21 @@ logo: 'assets/images/ghost.png'
                 <div class="post-card-content">
                 <div class="post-card-content-link">
                     <header class="post-card-header">
-                        <h2 class="post-card-title">{{ page.tag}}</h2>
+                        <h2 class="post-card-title">{{ page.tag | default: page.name }}</h2>
                     </header>
                     <div class="post-card-excerpt">
-                        {% if tag_description %}
-                            {{ tag_description }}
+                        {% if page.description %}
+                            {{ page.description }}
                         {% elsif page.tag %}
-                             A collection of {{ paginator.total_posts | defailt site.posts.size }} posts
+                             A collection of {{ filtered_posts.size }} posts
                         {% endif %}
                     </div>
                 </div>
                 </div>
     
             </section>
-    
-            {% assign posts = paginator.posts | default: site.posts %}
-            {%  for post in posts %}
+
+            {%  for post in filtered_posts %}
                 {% include post-card.html post=post %}
             {% endfor %}
     
