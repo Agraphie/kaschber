@@ -23,7 +23,6 @@ plugins:
   - jekyll-paginate-v2
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-postcss
 
 feed:
   path: feed.xml
