@@ -6,7 +6,6 @@ language: 'en-uk'
 plugins: 
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll/tagging
   - jekyll-paginate-v2
 
 feed:
