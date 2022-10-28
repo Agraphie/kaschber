@@ -14,11 +14,25 @@ permalink: /:title
 # Tags' info in `_data/tags_info.yml`
 
 # gems and other configs
-plugins_dir: [_plugins]
 plugins: 
-  - jekyll-paginate-v2
   - jekyll-feed
   - jekyll-seo-tag
 
 feed:
   path: feed.xml
+
+collections:
+  authors:
+    output: true
+
+
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: author
+      current: author
+      cover: false
+      class: 'author-template'
+      label: Author

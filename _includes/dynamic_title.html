@@ -4,9 +4,9 @@
       {% assign title = page.url | remove: 'tag' | remove: '/' | url_decode | replace: '-', ' ' %}
   {% elsif page.url contains "author/" %}
       {% assign username = page.url | remove: 'author' | remove: '/' | replace: '-', ' ' | remove: ' ' %}
-      {% for author in site.data.authors %}
-          {% if author[1].username == username %}
-              {% assign title = author[1].name %}
+      {% for author in site.authors %}
+          {% if author.username == username %}
+              {% assign title = author.name %}
           {% endif %}
       {% endfor %}
   {% endif %}

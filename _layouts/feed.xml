@@ -42,17 +42,17 @@ layout: null
     </author>
   {% endif %}
 
-  {% if site.data.authors %}
-    {% for author in site.data.authors %}
-      {% if author[1].username == post.author %}
-				<author>{{ author[1].name | strip_html }}</author>
+  {% if site.authors %}
+    {% for author in site.authors %}
+      {% if author.username == post.author %}
+				<author>{{ author.name | strip_html }}</author>
         <author>
-            <name>{{ author[1].name | default: author[1].name | xml_escape }}</name>
-          {% if author[1].email %}
-            <email>{{ author[1].email | xml_escape }}</email>
+            <name>{{ author.name | default: author.name | xml_escape }}</name>
+          {% if author.email %}
+            <email>{{ author.email | xml_escape }}</email>
           {% endif %}
-          {% if author[1].uri %}
-            <uri>{{ author[1].uri | xml_escape }}</uri>
+          {% if author.uri %}
+            <uri>{{ author.uri | xml_escape }}</uri>
           {% endif %}
         </author>
 			{% endif %}
@@ -74,7 +74,7 @@ layout: null
       <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">{{ post.content | strip | xml_escape }}</content>
 
       {% assign post_author = post.author | default: post.authors[0] | default: site.author %}
-      {% assign post_author = site.data.authors[post_author] | default: post_author %}
+      {% assign post_author = site.authors[post_author] | default: post_author %}
       {% assign post_author_email = post_author.email | default: nil %}
       {% assign post_author_uri = post_author.uri | default: nil %}
       {% assign post_author_name = post_author.name | default: post_author %}

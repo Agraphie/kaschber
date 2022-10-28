@@ -36,16 +36,16 @@ disqus: false
 
             {% if page.author.size  > 0 %}
                 <ul class="author-list">
-                    {% for author in site.data.authors %}
+                    {% for author in site.authors %}
                     
-                        {% if page.author contains author[1].username %}
+                        {% if page.author contains author.username %}
                             <li class="author-list-item">
-                                {% if author[1].picture %}
-                                    <a href="{{ site.baseurl }}author/{{ author[1].username }}" class="author-avatar">
-                                        <img class="author-profile-image" src="{{ site.baseurl }}{{ author[1].picture }}" alt="{{ author[1].username }}" />
+                                {% if author.picture %}
+                                    <a href="{{ site.baseurl }}author/{{ author.username }}" class="author-avatar">
+                                        <img class="author-profile-image" src="{{ site.baseurl }}{{ author.picture }}" alt="{{ author.username }}" />
                                     </a>
                                 {% else %}
-                                    <a href="{{ site.baseurl }}author/{{ author[1].username }}" class="author-avatar author-profile-image">{% include icons/avatar.html %}</a>
+                                    <a href="{{ site.baseurl }}author/{{ author.username }}" class="author-avatar author-profile-image">{% include icons/avatar.html %}</a>
                                 {% endif %}
                             </li>
                         {% endif %}
@@ -56,10 +56,10 @@ disqus: false
                 <div class="article-byline-meta">
                     {% if page.author.size  > 0 %}
                         <h4 class="author-name">
-                            {% for author in site.data.authors %}
-                                {% if page.author contains author[1].username %}
-                                    <a href="{{ site.baseurl }}author/{{ author[1].username }}">
-                                        {{author[1].name}}
+                            {% for author in site.authors %}
+                                {% if page.author contains author.username %}
+                                    <a href="{{ site.baseurl }}author/{{ author.username }}">
+                                        {{author.name}}
                                     </a>
                                     {% unless forloop.last %},{% endunless %}
                                 {% endif %}
