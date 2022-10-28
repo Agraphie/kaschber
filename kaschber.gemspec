@@ -11,7 +11,6 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets\/built|_layouts|_includes|_sass|LICENSE|README|_config\.yml|_plugins)!i) }
-                        .reject{ |f| f.match(%r!^(package.json|package-lock.json|gulpfile.js)!i) }
 
   spec.add_runtime_dependency "jekyll", "~> 4.2"
   spec.add_runtime_dependency "jekyll-feed", "~> 0.9"
