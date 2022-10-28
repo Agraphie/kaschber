@@ -17,5 +17,4 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-seo-tag", "~> 2.1"
   spec.add_runtime_dependency "jekyll-paginate-v2", "~> 3.0" 
   spec.add_runtime_dependency "slugify", "~> 1.0" 
-  spec.add_runtime_dependency "jekyll-postcss", "~> 0.5.0" 
 end
