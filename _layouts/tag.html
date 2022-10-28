@@ -41,7 +41,7 @@ logo: 'assets/images/ghost.png'
                         {% if tag_description %}
                             {{ tag_description }}
                         {% elsif page.tag %}
-                             A collection of {{ paginator.total_posts }} posts
+                             A collection of {{ paginator.total_posts | defailt site.posts.size }} posts
                         {% endif %}
                     </div>
                 </div>
@@ -49,7 +49,8 @@ logo: 'assets/images/ghost.png'
     
             </section>
     
-            {%  for post in paginator.posts %}
+            {% assign posts = paginator.posts | default: site.posts %}
+            {%  for post in posts %}
                 {% include post-card.html post=post %}
             {% endfor %}
     

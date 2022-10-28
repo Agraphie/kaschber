@@ -36,7 +36,8 @@ navigation: True
 <div class="inner posts">
 
     <div class="post-feed"> 
-    {% for post in paginator.posts %}
+    {% assign posts = paginator.posts | default: site.posts %}
+    {% for post in posts %}
             {% include post-card.html post=post%}
     {% endfor %}
     </div>
