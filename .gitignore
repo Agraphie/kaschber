@@ -1,4 +1,25 @@
-_site/
+### Jekyll ###
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+*.gem
+.bundle
+.sass-cache
+_site
+Gemfile.lock
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+*.code-workspace
+
+
+## Build by gulp ##
+assets/built
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+node_modules

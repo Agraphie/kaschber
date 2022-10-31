@@ -1,0 +1,109 @@
+---
+layout: default
+current: post
+class: post-template
+disqus: false
+---
+
+<main id="site-main" class="site-main">
+<article class="article {{page.class}} {% if page.post_image_style == "Full" %}image-full{% elsif page.post_image_style == "Small" %}image-small{% endif %}">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+            {% if page.tags.size > 0 %}
+                {% for tag in page.tags %}
+                    {% if forloop.first %}
+                    <span class="post-card-primary-tag">
+                        <a href="{{ site.baseurl }}tags/{{ tag | slugify: "latin" }}/">{{tag | capitalize}}</a>
+                    </span>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if page.featured %}
+                <span class="post-card-featured">{% include rss.html %} Featured</span>
+            {% endif %}
+        </div>
+
+        <h1 class="article-title">{{page.title}}</h1>
+
+        {% if page.custom_excerpt %}
+            <p class="article-excerpt">{{page.custom_excerpt}}</p>
+        {% endif %}
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            {% if page.author.size  > 0 %}
+                <ul class="author-list">
+                    {% for author in site.authors %}
+                    
+                        {% if page.author contains author.username %}
+                            <li class="author-list-item">
+                                {% if author.picture %}
+                                    <a href="{{ site.baseurl }}authors/{{ author.username }}" class="author-avatar">
+                                        <img class="author-profile-image" src="{{ site.baseurl }}{{ author.picture }}" alt="{{ author.username }}" />
+                                    </a>
+                                {% else %}
+                                    <a href="{{ site.baseurl }}authors/{{ author.username }}" class="author-avatar author-profile-image">{% include icons/avatar.html %}</a>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+                <div class="article-byline-meta">
+                    {% if page.author.size  > 0 %}
+                        <h4 class="author-name">
+                            {% for author in site.authors %}
+                                {% if page.author contains author.username %}
+                                    <a href="{{ site.baseurl }}authors/{{ author.username }}">
+                                        {{author.name}}
+                                    </a>
+                                    {% unless forloop.last %},{% endunless %}
+                                {% endif %}
+                            {% endfor %}
+                        </h4>
+                    {% endif %}
+                    <div class="byline-meta-content">
+                        <time class=="byline-meta-date" datetime="{{ page.date | date:'%e %B %Y' }}">{{ page.date | date:'%e %B %Y' }}</time>
+                        {% if page.reading_time %}
+                            <span class="byline-reading-time"><span class="bull">&bull;</span> {{page.reading_time}}</span>
+                        {% else %}
+                            {% assign words_per_minute = site.words_per_minute | default: 200 %}
+                            {% assign words = page.content | strip_html | number_of_words %}
+                            {% if words <= words_per_minute %}
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 1 min read</span>
+                            {% else %}
+                              <span class="byline-reading-time"><span class="bull">&bull;</span> {{ words | divided_by:words_per_minute }} min read</span>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+
+        </section>
+        </div>
+
+        {% if page.post_image_style != "Hidden" %}
+            {% if page.cover %}
+                <figure class="article-image">
+                    <img
+                        src="{{ site.baseurl }}{{ page.cover }}"
+                        alt="{% if page.cover_alt %}{{page.cover_alt}}{% else %}{{page.title}}{% endif %}"
+                    />
+                    {% if page.cover_caption %}
+                        <figcaption>{{page.cover_caption}}</figcaption>
+                    {% endif  %}
+                </figure>
+            {% endif %}
+        {% endif %}
+
+    </header>
+    <section class="gh-content gh-canvas">
+        {% include custom-post-content.html %}
+
+        {{content}}
+    </section>
+</article>
+</main>

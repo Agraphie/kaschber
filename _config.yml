@@ -1,0 +1,44 @@
+feed_layout: "Classic"
+color_scheme: "Auto"
+language: 'en-uk'
+
+# gems and other configs
+plugins: 
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate-v2
+
+feed:
+  path: feed.xml
+
+collections:
+  authors:
+    output: true
+  tags:
+    output: true
+
+
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: author
+      current: author
+      cover: false
+      class: 'author-template'
+      label: Author
+  - scope:
+      path: ""
+      type: "tags"
+    values:
+      layout: tag
+      current: tag
+      cover: false
+      class: 'tag-template'
+      label: Tag
+
+tag_page_layout: tag
+tag_page_dir: tags
+tag_page_data:
+  class: 'tag-template'

@@ -1,0 +1,16 @@
+<!-- dynamically fixing the title for tag/author pages -->
+{% if page.url %}
+  {% if page.url contains "tags/" %}
+      {% assign title = page.url | remove: 'tag' | remove: '/' | url_decode | replace: '-', ' ' %}
+  {% elsif page.url contains "authors/" %}
+      {% assign username = page.url | remove: 'author' | remove: '/' | replace: '-', ' ' | remove: ' ' %}
+      {% for author in site.authors %}
+          {% if author.username == username %}
+              {% assign title = author.name %}
+          {% endif %}
+      {% endfor %}
+  {% endif %}
+{% endif %}
+{% if title %}
+  {% assign title = title | append: ' - ' | append: site.title  %}
+{% endif %}
