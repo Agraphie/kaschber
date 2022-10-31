@@ -42,7 +42,7 @@ class: 'home-template'
 If you have a custom index.html, you will have to copy the index.html from the Git repository and add your changes manually.
 
 ## Customisation
-You can specifiy these customisation options in your `_config.yml`
+You can specifiy these customisation options in your `_config.yml` for site-wide options
 
 | Config                  | Default           | Options                           |
 |-------------------------|-------------------|-----------------------------------|
@@ -52,6 +52,13 @@ You can specifiy these customisation options in your `_config.yml`
 | show_logo_in_navigation | false             | True, False                        |
 | feed_layout             | Classic           | Classic, Grid, List                 |
 | color_scheme            | Auto              | Light, Dark, Auto                   |
+| post_image_style        | Wide              | Wide, Full, Small, Hidden            |
+
+
+You can specifiy these additional customisation options per post or in the default section for posts `_config.yml`
+| Config                  | Default           | Options                           |
+|-------------------------|-------------------|-----------------------------------|
+| show_recent_posts_footer | True | True, False   |
 | post_image_style        | Wide              | Wide, Full, Small, Hidden            |
 
 Kaschber also features several points to inject your custom code into the template. You can create

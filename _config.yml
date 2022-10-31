@@ -37,7 +37,12 @@ defaults:
       cover: false
       class: 'tag-template'
       label: Tag
-
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      show_recent_posts_footer: True
+      
 tag_page_layout: tag
 tag_page_dir: tags
 tag_page_data:
