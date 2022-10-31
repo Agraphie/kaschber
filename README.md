@@ -85,5 +85,18 @@ cover: assets/images/speeches.jpg
 # Contribute
 If you would like to contribute, please keep the files as closely as possible to the original Ghost handlebar files. This will make maintenance easier. This is also the reason why the files haven't been really broken down into smaller parts.
 
+## Build
+To build the files locally, you have to have npm and gulp installed.
+```
+$ gulp build
+```
+
+To test your changes locally execute
+```bash
+$ gem build
+$ gem install kaschber-<current-version-in-gemspec>
+```
+
+
 # Acknowledgements
 This theme was heavily inspired by [Jasper2](https://github.com/jekyllt/jasper2).
