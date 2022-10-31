@@ -107,7 +107,7 @@ disqus: false
     </section>
 </main>
 
-{% if page.show_recent_posts_footer %}
+{% if page.show_recent_posts_footer != false %}
 
     {% assign posts = paginator.posts | default: site.posts | where_exp: "item", "item.id != page.id" %}
     {% if posts %}

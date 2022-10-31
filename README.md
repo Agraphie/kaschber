@@ -60,6 +60,7 @@ You can specifiy these additional customisation options per post or in the defau
 |-------------------------|-------------------|-----------------------------------|
 | show_recent_posts_footer | True | True, False   |
 | post_image_style        | Wide              | Wide, Full, Small, Hidden            |
+| custom_excerpt        | ""              | <Your custom excerpt shown on the page and the post card>           |
 
 Kaschber also features several points to inject your custom code into the template. You can create
 - `_includes/custom-head.html` to include custom css or any other tags which get rendered in the head section
@@ -81,12 +82,48 @@ cover: False
 ---
 ```
 
+Then include the following Jekyll config in your `_config.yml`
+```
+collections:
+  authors:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: author
+      current: author
+      cover: false
+      class: 'author-template'
+      label: Author
+```
+
 ## Tags
 To create tags specifically, create a folder `_tags` and insert your tags there as markdown or html file. E.g.
 ```
 name: speeches
 description: Some of the greatest words ever spoken.
 cover: assets/images/speeches.jpg
+```
+
+Then include the following Jekyll config in your `_config.yml`
+```
+collections:
+  tags:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "tags"
+    values:
+      layout: tag
+      current: tag
+      cover: false
+      class: 'tag-template'
+      label: Tag
 ```
 
 # Contribute
