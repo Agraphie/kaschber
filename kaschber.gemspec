@@ -2,9 +2,9 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "kaschber"
-  spec.version       = "0.2.1"
-  spec.authors       = [""]
-  spec.email         = [""]
+  spec.version       = "0.2.2"
+  spec.authors       = ["Agraphie"]
+  spec.email         = ["agraphie@mailbox.org"]
 
   spec.summary       = "A Jekyll theme ported from Ghost's default theme Casper."
   spec.homepage      = "https://github.com/Agraphie/kaschber"
