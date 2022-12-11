@@ -1,21 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ site.locale }}"{% if site.color_scheme == "Dark" %} class="dark-mode"{% elsif site.color_scheme == "Auto" %} class="auto-color"{% endif %}>
-<head>
+    
+{% include head.html %}
 
-    {% include dynamic_title.html %}
-    <title>{% if title %}{{ title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" type="text/css" href="{{ "/assets/built/global.css" | relative_url }}">
-    <link rel="stylesheet" type="text/css" href="{{ "/assets/built/screen.css" | relative_url }}">
-
-    {% include head.html %}
-
-</head>
 <body class="{% if paginator.page > 1 %}paged archive-template{% elsif page.class %}{{ page.class }}{% else %}home-template{% endif %} 
     {% if site.title_font == "Elegant serif" %} has-serif-title{% endif %}{% if site.body_font == "Modern sans-serif" %} has-sans-body{% endif %}
     {% if site.cover or page.cover %} has-cover {% endif %}{% if page.current == "home" %}{% unless site.show_logo_in_navigation %} no-logo{% endunless %}{% endif %}">
