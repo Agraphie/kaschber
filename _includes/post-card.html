@@ -34,7 +34,7 @@
     </a>
 
     <footer class="post-card-meta">
-      <time class="post-card-meta-date" datetime="{{ page.date | date_to_xmlschema }}">{{ post.date | date:'%e %B %Y' }}</time>
+      <time class="post-card-meta-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:'%e %B %Y' }}</time>
       {% if post.reading_time %}
         <span class="post-card-meta-length">{{post.reading_time}}</span>
       {% endif %}
