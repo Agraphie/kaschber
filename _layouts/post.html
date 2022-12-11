@@ -42,7 +42,7 @@ disqus: false
                   <li class="author-list-item">
                     {% if author.picture %}
                       <a href="{{ site.baseurl }}authors/{{ author.username }}" class="author-avatar">
-                        <img class="author-profile-image" src="{{ site.baseurl }}{{ author.picture }}" alt="{{ author.username }}"/>
+                        <img class="author-profile-image" src="{{ site.baseurl }}{{ author.picture }}" alt="{{ author.username }}">
                       </a>
                     {% else %}
                       <a href="{{ site.baseurl }}authors/{{ author.username }}" class="author-avatar author-profile-image">{% include icons/avatar.html %}</a>
@@ -94,7 +94,7 @@ disqus: false
       {% if page.post_image_style != "Hidden" %}
         {% if page.cover %}
           <figure class="article-image">
-            <img src="{{ site.baseurl }}{{ page.cover }}" alt="{% if page.cover_alt %}{{page.cover_alt}}{% else %}{{page.title}}{% endif %}"/>
+            <img src="{{ site.baseurl }}{{ page.cover }}" alt="{% if page.cover_alt %}{{page.cover_alt}}{% else %}{{page.title}}{% endif %}">
             {% if page.cover_caption %}
               <figcaption>{{page.cover_caption}}</figcaption>
             {% endif  %}

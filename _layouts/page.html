@@ -14,7 +14,7 @@ disqus: false
 
       {% if page.cover %}
         <figure class="article-image">
-          <img src="{{ site.baseurl }}{{ page.cover }}" alt="{% if page.cover_alt %}{{page.cover_alt}}{% else %}{{page.title}}{% endif %}"/>
+          <img src="{{ site.baseurl }}{{ page.cover }}" alt="{% if page.cover_alt %}{{page.cover_alt}}{% else %}{{page.title}}{% endif %}">
           {% if page.cover_caption %}
             <figcaption>{{page.cover_caption}}</figcaption>
           {% endif  %}
