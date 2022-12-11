@@ -1,13 +1,14 @@
 <head>
-    {% include dynamic_title.html %}
+  <meta charset="utf-8"/>
+  {%- include dynamic_title.html -%}
 
-    {%- seo -%}
+  {%- seo -%}
 
-    {%- feed_meta -%}
-    
-    <link rel="stylesheet" type="text/css" href="{{ "/assets/built/global.css" | relative_url }}">
-    <link rel="stylesheet" type="text/css" href="{{ "/assets/built/screen.css" | relative_url }}">
+  {%- feed_meta -%}
 
-    {%- include custom-head.html -%}
+  <link rel="stylesheet" type="text/css" href="{{ "/assets/built/global.css" | relative_url }}">
+  <link rel="stylesheet" type="text/css" href="{{ "/assets/built/screen.css" | relative_url }}">
 
-  </head>
+  {%- include custom-head.html -%}
+
+</head>

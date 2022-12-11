@@ -6,20 +6,22 @@ subclass: 'post page'
 ---
 
 <section class="outer error-content">
-    <div class="inner">
-        <section class="error-message">
-            <h1>404</h1>
-            <p><strong>Oh no, page not found :(</strong></p>
-            <a class="error-link" href="{{ site.url }}">Go to the front page →</a>
-        </section>
-    </div>
+  <div class="inner">
+    <section class="error-message">
+      <h1>404</h1>
+      <p>
+        <strong>Oh no, page not found :(</strong>
+      </p>
+      <a class="error-link" href="{{ site.url }}">Go to the front page →</a>
+    </section>
+  </div>
 </section>
 
 
 <aside class="read-more-wrap outer">
-    <div class="read-more inner">
-      {%  for post in site.posts limit:3 %}
-        {% include post-card.html post=post %}
-      {% endfor %}
-    </div>
+  <div class="read-more inner">
+    {%  for post in site.posts limit:3 %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
 </aside>

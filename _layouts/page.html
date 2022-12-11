@@ -6,30 +6,26 @@ disqus: false
 ---
 
 <main id="site-main" class="site-main">
-    <article class="article {{post_class}}">
-    
-        <header class="article-header gh-canvas">
-    
-            <h1 class="article-title">{{page.title}}</h1>
-    
-            {% if page.cover %}
-            <figure class="article-image">
-                <img
-                    src="{{ site.baseurl }}{{ page.cover }}"
-                    alt="{% if page.cover_alt %}{{page.cover_alt}}{% else %}{{page.title}}{% endif %}"
-                />
-                {% if page.cover_caption %}
-                    <figcaption>{{page.cover_caption}}</figcaption>
-                {% endif  %}
-            </figure>
-            {% endif %}
-    
-        </header>
-    
-        <section class="gh-content gh-canvas">
-            {{content}}
-        </section>
-    
-    </article>
-</main>
+  <article class="article {{post_class}}">
 
+    <header class="article-header gh-canvas">
+
+      <h1 class="article-title">{{page.title}}</h1>
+
+      {% if page.cover %}
+        <figure class="article-image">
+          <img src="{{ site.baseurl }}{{ page.cover }}" alt="{% if page.cover_alt %}{{page.cover_alt}}{% else %}{{page.title}}{% endif %}"/>
+          {% if page.cover_caption %}
+            <figcaption>{{page.cover_caption}}</figcaption>
+          {% endif  %}
+        </figure>
+      {% endif %}
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+      {{content}}
+    </section>
+
+  </article>
+</main>
