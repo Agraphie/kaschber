@@ -1,12 +1,14 @@
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {%- seo -%}
+  <meta charset="utf-8">
+  {%- include dynamic_title.html -%}
 
-    {%- feed_meta -%}
-    
-  
-    {%- include custom-head.html -%}
-    
-  </head>
+  {%- seo -%}
+
+  {%- feed_meta -%}
+
+  <link rel="stylesheet" type="text/css" href="{{ "/assets/built/global.css" | relative_url }}">
+  <link rel="stylesheet" type="text/css" href="{{ "/assets/built/screen.css" | relative_url }}">
+
+  {%- include custom-head.html -%}
+
+</head>

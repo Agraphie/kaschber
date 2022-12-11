@@ -4,42 +4,38 @@ current: home
 class: 'home-template'
 ---
 
-<div class="site-header-content outer{% if site.header_style == "Left aligned" %} left-aligned{% endif %}{% unless site.cover %}{% if site.header_style == "Hidden" %} no-content{% endif %}{% endunless %}">
+<div class="site-header-content outer{% if site.header_style == 'Left aligned' %} left-aligned{% endif %}{% unless site.cover %}{% if site.header_style == 'Hidden' %} no-content{% endif %}{% endunless %}">
 
-    {% if site.cover or page.cover %}
-        <img class="site-header-cover"
-            src="{{ site.baseurl }}{% if page.cover %}{{ page.cover }}{% elsif site.cover %}{{ site.cover }}{% endif %}"
-            style="{% unless page.cover or site.cover %} no-cover {% endunless %}"
-            alt="{{ site.title }}"
-        />
-       {% endif %}
+  {% if site.cover or page.cover %}
+    <img class="site-header-cover" src="{{ site.baseurl }}{% if page.cover %}{{ page.cover }}{% elsif site.cover %}{{ site.cover }}{% endif %}" style="{% unless page.cover or site.cover %} no-cover {% endunless %}" alt="{{ site.title }}">
+  {% endif %}
 
-    {% if site.header_style != "Hidden" %}
-        <div class="site-header-inner inner">
-            {% unless site.show_logo_in_navigation %}
-                {% if site.logo %}
-                    <img class="site-logo" src="{{ site.logo }}" alt="{{ site.title }}">
-                {% else %}
-                    <h1 class="site-title">{{ site.title }}</h1>
-                {% endif %}
-            {% endunless %}
-            {% if site.description %}
-                <p class="site-description">{{ site.description }}</p>
-            {% endif %}
-        </div>
-    {% endif %}
+  {% if site.header_style != "Hidden" %}
+    <div class="site-header-inner inner">
+      {% unless site.show_logo_in_navigation %}
+        {% if site.logo %}
+          <img class="site-logo" src="{{ site.logo }}" alt="{{ site.title }}">
+        {% else %}
+          <h1 class="site-title">{{ site.title }}</h1>
+        {% endif %}
+      {% endunless %}
+      {% if site.description %}
+        <p class="site-description">{{ site.description }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
 
 </div>
 
 <main id="site-main" class="site-main outer">
-<div class="inner posts">
+  <div class="inner posts">
 
-    <div class="post-feed"> 
-    {% assign posts = paginator.posts | default: site.posts %}
-    {% for post in posts %}
-            {% include post-card.html post=post%}
-    {% endfor %}
+    <div class="post-feed">
+      {% assign posts = paginator.posts | default: site.posts %}
+      {% for post in posts %}
+        {% include post-card.html post=post%}
+      {% endfor %}
     </div>
 
-</div>
+  </div>
 </main>
