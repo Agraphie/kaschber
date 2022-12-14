@@ -4,40 +4,36 @@
   {% include head.html %}
 
   <body class="{% if paginator.page > 1 %}paged archive-template{% elsif page.class %}{{ page.class }}{% else %}home-template{% endif %}
-    {% if site.title_font == 'Elegant serif' %} has-serif-title{% endif %}{% if site.body_font == 'Modern sans-serif' %} has-sans-body{% endif %}
-    {% if site.cover or page.cover %} has-cover {% endif %}{% if page.current == 'home' %}{% unless site.show_logo_in_navigation %} no-logo{% endunless %}{% endif %}">
+                      is-head-{% if site.navigation_layout == 'Logo on cover' %}left-logo{% elsif site.navigation_layout == 'Logo in the middle' %}middle-logo{% else %}stacked{% endif %}
+                      {% if site.title_font == 'Elegant serif' %} has-serif-title{% endif %}{% if site.body_font == 'Modern sans-serif' %} has-sans-body{% endif %}
+                      {% if site.cover or page.cover %} has-cover {% endif %}">
     <div class="viewport">
       <header id="gh-head" class="gh-head outer">
-        <nav class="gh-head-inner inner">
+        <div class="gh-head-inner inner">
           <div class="gh-head-brand">
-            <a class="gh-head-logo{% unless site.logo %} no-image{% endunless %}" href="{{ site.url }}{{ site.baseurl }}">
+            <a class="gh-head-logo" href="{{ site.url }}{{ site.baseurl }}">
               {% if site.logo %}
                 <img src="{{ site.baseurl }}{{ site.logo }}" alt="{{ site.title }}">
               {% else %}
                 {{ site.title }}
               {% endif %}
             </a>
-            <div class="gh-head-brand-wrapper">
-              <a class="gh-burger" role="button">
-                <div class="gh-burger-box">
-                  <div class="gh-burger-inner"></div>
-                </div>
-              </a>
-            </div>
+            <button class="gh-burger"></button>
           </div>
-          <div class="gh-head-menu">
+          {%- assign default_paths = site.pages | map: "path" -%}
+          {%- assign page_paths = site.header_pages | default: default_paths -%}
+          <nav class="gh-head-menu">
             <ul class="nav" role="menu">
-              <li class="nav-home" role="menuitem">
-                <a href="{{site.baseurl}}">Home</a>
-              </li>
-              <li class="nav-about" role="menuitem">
-                <a href="{{site.baseurl}}about/">About</a>
-              </li>
-              <li class="nav-try-ghost" role="menuitem">
-                <a href="{{site.baseurl}}impressum/">Impressum/Datenschutz</a>
-              </li>
+              {%- for path in page_paths -%}
+                {%- assign my_page = site.pages | where: "path", path | first -%}
+                {%- if my_page.title -%}
+                  <li class="nav-{{ my_page.title | escape }}" role="menuitem">
+                    <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
             </ul>
-          </div>
+          </nav>
           <div class="gh-head-actions">
             <div class="gh-social">
               {% if site.facebook %}
@@ -68,7 +64,7 @@
               </div>
             {% endif %}
           </div>
-        </nav>
+        </div>
       </header>
 
 

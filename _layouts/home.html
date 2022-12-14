@@ -12,13 +12,13 @@ class: 'home-template'
 
   {% if site.header_style != "Hidden" %}
     <div class="site-header-inner inner">
-      {% unless site.show_logo_in_navigation %}
+      {% if site.navigation_layout == "Logo on cover" %}
         {% if site.logo %}
           <img class="site-logo" src="{{ site.logo }}" alt="{{ site.title }}">
         {% else %}
           <h1 class="site-title">{{ site.title }}</h1>
         {% endif %}
-      {% endunless %}
+      {% endif %}
       {% if site.description %}
         <p class="site-description">{{ site.description }}</p>
       {% endif %}
