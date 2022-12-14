@@ -13,7 +13,9 @@
  * to the element with the class "post-feed" in the currently viewed page.
  */
 
- (function (window, document) {
+(function (window, document) {
+    if (document.documentElement.classList.contains('no-infinite-scroll')) return;
+
     // next link element
     var nextElement = document.querySelector('link[rel=next]');
     if (!nextElement) {

@@ -1,64 +1,66 @@
 ---
 layout: default
 ---
-
 <main id="site-main" class="site-main outer">
-  <div class="post-feed inner">
+  <div class="inner posts">
 
-    <section class="post-card post-card-large">
-      {%if page.feature_image %}
-        <div class="post-card-image-link">
-          <img class="post-card-image" src="{{ site.baseurl }}{{ page.feature_image }}" alt="{{ page.name }}">
-        </div>
-      {% endif %}
+    <div class="post-feed">
+      <section class="post-card post-card-large">
 
-      <div class="post-card-content">
-        <div class="post-card-content-link">
+        {%if page.feature_image %}
+          <div class="post-card-image-link">
+            <img class="post-card-image" src="{{ site.baseurl }}{{ page.feature_image }}" alt="{{ page.name }}">
+          </div>
+        {% endif %}
 
-          {%if page.picture %}
-            <img class="author-profile-pic" src="{{ site.baseurl }}{{ page.picture }}" alt="{{page.name}}"/>
-          {% endif %}
+        <div class="post-card-content">
+          <div class="post-card-content-link">
 
-          <header class="post-card-header">
-            <h2 class="post-card-title">{{page.name}}</h2>
-          </header>
-
-          {%if page.bio %}
-            <div class="post-card-excerpt">{{page.bio}}</div>
-          {% endif %}
-
-          <footer class="author-profile-footer">
-            {%if page.location %}
-              <div class="author-profile-location">{{page.location}}</div>
+            {%if page.picture %}
+              <img class="author-profile-pic" src="{{ site.baseurl }}{{ page.picture }}" alt="{{page.name}}"/>
             {% endif %}
-            <div class="author-profile-meta">
-              {%if page.website %}
-                <a class="author-profile-social-link" href="{{page.website}}" target="_blank" rel="noopener">{{page.website}}</a>
-              {% endif %}
-              {%if page.twitter_url %}
-                <a class="author-profile-social-link" href="{{page.twitter_url}}" target="_blank" rel="noopener">{% include icons/twitter.html %}</a>
-              {% endif %}
-              {%if page.facebook_url %}
-                <a class="author-profile-social-link" href="{{page.facebook_url}}" target="_blank" rel="noopener">{% include icons/facebook.html %}</a>
-              {% endif %}
 
-              {% if page.location %}
-                <div class="author-location">{{ page.location }}
-                  <span class="bull">&bull;</span>
-                </div>
-              {% endif %}
-            </div>
-          </footer>
+            <header class="post-card-header">
+              <h2 class="post-card-title">{{page.name}}</h2>
+            </header>
 
+            {%if page.bio %}
+              <div class="post-card-excerpt">{{page.bio}}</div>
+            {% endif %}
+
+            <footer class="author-profile-footer">
+              {%if page.location %}
+                <div class="author-profile-location">{{page.location}}</div>
+              {% endif %}
+              <div class="author-profile-meta">
+                {%if page.website %}
+                  <a class="author-profile-social-link" href="{{page.website}}" target="_blank" rel="noopener">{{page.website}}</a>
+                {% endif %}
+                {%if page.twitter_url %}
+                  <a class="author-profile-social-link" href="{{page.twitter_url}}" target="_blank" rel="noopener">{% include icons/twitter.html %}</a>
+                {% endif %}
+                {%if page.facebook_url %}
+                  <a class="author-profile-social-link" href="{{page.facebook_url}}" target="_blank" rel="noopener">{% include icons/facebook.html %}</a>
+                {% endif %}
+
+                {% if page.location %}
+                  <div class="author-location">{{ page.location }}
+                    <span class="bull">&bull;</span>
+                  </div>
+                {% endif %}
+              </div>
+            </footer>
+
+          </div>
         </div>
-      </div>
 
-    </section>
+      </section>
 
-    {% assign filtered_posts = site.posts | where: 'author', page.username %}
-    {% for post in filtered_posts %}
-      {% include post-card.html post=post %}
-    {% endfor %}
+      {% assign filtered_posts = site.posts | where: 'author', page.username %}
+      {% for post in filtered_posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
 
+    </div>
   </div>
 </main>

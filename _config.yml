@@ -1,6 +1,7 @@
 feed_layout: "Classic"
 color_scheme: "Auto"
 language: 'en-uk'
+navigation_layout: "Logo on cover"
 
 # gems and other configs
 plugins: 
