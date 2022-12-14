@@ -46,14 +46,14 @@ You can specifiy these customisation options in your `_config.yml` for site-wide
 
 | Config                  | Default           | Options                           |
 |-------------------------|-------------------|-----------------------------------|
-| title_font              | Modern sans-serif | Modern sans-serif, Elegant serif   |
-| body_font               | Modern sans-serif | Modern sans-serif, Elegant serif   |
+| title_font              | System default    | Elegant serif                     |
+| body_font               | System default    | Modern sans-serif                 |
 | header_style            | Center aligned    | Center aligned, Left, aligned, Hidden |
 | show_logo_in_navigation | false             | True, False                        |
 | feed_layout             | Classic           | Classic, Grid, List                 |
 | color_scheme            | Auto              | Light, Dark, Auto                   |
 | post_image_style        | Wide              | Wide, Full, Small, Hidden            |
-
+| navigation_layout       | Logo on cover     | Logo on cover, Logo in the middle, stacked | 
 
 You can specifiy these additional customisation options per post or in the default section for posts `_config.yml`
 | Config                  | Default           | Options                           |
@@ -66,6 +66,26 @@ Kaschber also features several points to inject your custom code into the templa
 - `_includes/custom-head.html` to include custom css or any other tags which get rendered in the head section
 - `_includes/custom-js.html` to include any additional Javascript at the bottom of your page
 - `_includes/custom-post-content.html` to include any custom post-specific content which gets inserted in every post. E.g. a table of content tag
+
+### Navigation
+Per default, Kaschber will include all files in your root folder in the header navigation bar. You can customise this with the setting `header_pages` in your `_config.yml`. E.g.
+
+```
+header_pages:
+  - my_page.md
+  - about.md
+```
+
+### Colours
+You can overwrite any colours and styles by just adding css files and include them in your `custom-head.html`. To overwrite the default accent colour #ff0095, do the following
+1. Create a file in your assets folder with the following content
+```css
+:root {
+  --ghost-accent-color: #6D7C86;
+}
+```
+2. Create `custom-head.html` in your `_includes` folder
+3. Include the new css file in your `custom-head.html`
 
 ## Authors
 To include author information, just create a folder called `_authors` and create your author information via markdown or html files. E.g.
